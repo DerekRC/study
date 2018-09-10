@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+    <script>
+    var arr = [8,2,4,3,5,10];
+    
+   
+    function desc(arr){
+      for(var i=1;i<=arr.length-1;i++){//第几轮排序
+      for(var j=0;j<=arr.length-i-1;j++){
+        if(arr[j] > arr[j+1]){//交换位置
+          var temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+          
+        }
+      }
+    }
+    return arr;
+    }
+    // desc(arr);
+    console.log(desc([12,2,16,3,85,19]));
+    
+
+
+
+  </script>
+
+ </body>
+</html>

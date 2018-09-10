@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+// 异常处理
+try{
+  var num = prompt("请输入一个数值");
+  if(isNaN(num)){
+    throw '输入的内容不是数值类型';
+  }
+}catch(err){
+  console.log(err);
+  console.log("语句还要执行...");
+  throw new Error(err);
+  console.log("语句还未执行完");
+}
+</script> 
+ </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+   <script>
+    function aa(min,max){
+		//var max = arr[0];
+		//var min = arr[0];
+		for(var i=0;i<arr.length;i++){
+			if(max<arr[i]){
+				max = arr[i]
+			}else if(min > arr[i]){
+				min = arr[i]
+			}
+			return [max,min];
+		}
+	}
+	console.log(aa(11,22,33,44));
+  </script>
+ </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+        var str = "人生就是这样，有欢笑也有泪水，一部分人主要负责欢笑，另部分人主要负责泪水，回首人生，我发现我失去了很多，但是我并不难过，因为我知道将来我会失去更多，失败并不可怕，可怕的是你还相信这句话。"
+        function Mark(article,keywords,color){
+          var reg = new RegExp(keywords,'g');
+          return article.replace(reg,"<span style='background:"+color+"'>"+keywords+"</span>")
+        }
+        document.write(Mark(str,'人','blue'));
+      </script>
+ </body>
+</html>
