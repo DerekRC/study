@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{width:700px;height:500px;border:1px solid red;}
+    .box1{display:inline-block;width:600px;height:50px;border:1px solid red;margin:30px;font-size:30px;line-height:50px;}
+    .box2,.box3,.box4,.box5{width:100px;height:100px;border:1px solid red;
+          display: inline-block;margin:10px;font-size:50px;text-align:center;line-height:100px;background:lightslategrey}
+    .box6,.box7,.box8,.box9{width:100px;height:100px;border:1px solid red;
+          display: inline-block;margin:10px;font-size:50px;text-align:center;line-height:100px;background:lightslategrey}
+    .box10,.box11,.box12,.box13,.box14,.box15{width:100px;height:100px;border:1px solid red;
+          display: inline-block;margin:10px;font-size:50px;text-align:center;line-height:100px;background:lightslategrey}
+  </style>
+  <script src="./jq/jquery-1.9.1.min.js"></script>
+  <script>
+    $(function(){
+      var span_obj = document.querySelectorAll("span");
+      console.log(span_obj);
+      var p_obj = document.querySelector("p");
+      console.log(p_obj);
+      $('.box span').click(function(){
+       console.log(this);
+        p_obj.innerHTML+=this.innerHTML;
+        console.log( p_obj.innerHTML);
+        var span_obj = p_obj.innerHTML;
+        if(span_obj.indexOf("+") != -1){
+          var span_obj = span_obj.split('+');
+          $(".box14").click(function(){
+          for(var i=0;i<span_obj.length;i++){
+            p_obj.innerHTML = Number(span_obj[0])+Number(span_obj[1]);
+          }
+        })
+        }else if(span_obj.indexOf("-") != -1){
+          var span_obj = span_obj.split('-');
+          $(".box14").click(function(){
+          for(var i=0;i<span_obj.length;i++){
+            p_obj.innerHTML = Number(span_obj[0])-Number(span_obj[1]);
+          }
+        })
+        }
+        console.log(span_obj);
+        
+        
+      })
+      $('.box15').click(function(){
+        p_obj.innerHTML="";
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="box">
+    <p class="box1"></p>
+    <span class="box2">1</span>
+    <span class="box3">2</span>
+    <span class="box4">3</span>
+    <span class="box5">4</span>
+    <span class="box6">5</span>
+    <span class="box7">6</span>
+    <span class="box8">7</span>
+    <span class="box9">8</span>
+    <span class="box10">9</span>
+    <span class="box11">0</span>
+    <span class="box12">+</span>
+    <span class="box13">-</span>
+    <span class="box14">=</span>
+    <span class="box15">C</span>
+  </div>
+</body>
+</html>
