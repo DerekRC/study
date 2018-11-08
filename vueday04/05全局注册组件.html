@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='./Vue/vue.js'></script>
+</head>
+
+
+<body>
+  <div id='app'></div>
+  <hr>
+  <div id='app1'></div>
+  <script>
+    /* 全局注册 component
+      1.组件注册要写在实例创建之前
+      2.组件的命名(2种)：
+            驼峰命名，  短横线连接命名
+          myConponent  my-conponent(推荐使用)
+      3.全局注册的组件，全局可用
+     */
+     Vue.component('my-comp',{
+       template:`<div style='background:#228'>这是一个全局注册的组件 {{msg}} </div>`,
+       data(){
+         return {
+           msg:'my-comp'
+         }
+       }
+     });
+    //创建一个vue实例
+    //以标签的形式写入实例中
+    //组件可以多次被引用
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      template:`
+        <div style='color:white;'>
+          <my-comp></my-comp>
+          <my-comp></my-comp>
+          <my-comp></my-comp>
+        </div>
+      `
+    });
+    new Vue({
+      el: '#app1',
+      template:`
+        <div style='color:pink;'>
+          <my-comp></my-comp>
+          <my-comp></my-comp>
+          <my-comp></my-comp>
+        </div>
+      `
+    });
+  </script>
+</body>
+
+
+</html>

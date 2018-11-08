@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='./Vue/vue.js'></script>
+</head>
+
+
+<body>
+  <div id='app'></div>
+  <div id='app1'>
+    <table>
+      <tr>
+        <td is='my-comp'></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    //Vue实例其实就可以看成一个根组件
+    new Vue({
+      el: '#app',
+      data: {},
+      template:`
+        <div style='color:white;'>
+          <com-one></com-one>
+          <com-two></com-two> 
+        </div>
+      `,
+      //通过components选项来创建局部组件 子组件
+      components:{
+        'com-one':{
+          template:`<div style='background:pink'>这是一个局部注册的组件 {{msg}} </div>`,
+          data(){
+         return {
+           msg:'com-one'
+         }
+       }
+        },
+        'com-two':{
+          template:`<div style='background:red'>这是一个局部注册的组件 {{msg}} </div>`,
+          data(){
+         return {
+           msg:'com-two'
+         }
+          }
+       }
+      }
+    });
+    new Vue({
+      el:'#app1',
+      components:{
+        'my-comp':{
+          template:`<td>这是一个td</td>`
+        }
+      }
+    })
+  </script>
+</body>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='./Vue/vue.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+  <div id='app1'></div>
+  <div id="app2"></div>
+  <template id="temp01"> 
+     <!-- 这里必须要有一个根节点 -->
+     <div>
+       <p><a v-bind:href="baidu">百度尼玛</a></p>
+     </div>
+  </template>
+  <script type="x-template" id="temp02">
+    <p style='background-color:green;padding:10px'>
+      {{msg}}
+    </p>
+  </script>
+  <script>
+    //1.直接写在选项中
+    new Vue({ // 选项Vue构造器内的参数
+      el: '#app',
+      data: {
+        msg:'hello template!'
+      }, //存放数据 状态
+      methods: {}, //存放方法
+      template:`
+        <div style='color:red'>我是选项模版 - {{msg}}</div>
+      `,// 定义一个字符串模版  html
+    });
+    //创建实例
+    //2 写在template标签中
+    new Vue({
+      el:'#app1',
+      data:{
+        baidu:'www.baidu.com'
+      },
+      template:'#temp01'
+    })
+    //创建实例
+    // 3.写在 script 标签中
+    new Vue({
+      el:'#app2',
+      data:{
+        msg:'我是定义在script中的模版'
+      },
+      template:'#temp02'
+    })
+  </script>
+</body>
+
+</html>

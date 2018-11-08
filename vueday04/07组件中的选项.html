@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <script src='./Vue/vue.js'></script>
+</head>
+
+
+<body>
+  <div id='app'></div>
+  <script>
+    //全局注册一个组件 my-comp
+    /*组件中的选项 data
+      1.data必须以函数形式出现
+      2.必须的有return，返回一个对象，在对象中声明变量 
+      3.因为组件会被复用，data是对象的话，一旦修改data中的值就会影响组件之间的复用
+     */
+    var data = {
+      name:'xiaoming'
+    }
+    Vue.component('myComp',{
+      data(){
+        return {
+          temp:'Hello myComp!'
+        }
+      },
+      template:`<p style='color:green;'> {{temp}} </p>`
+    });
+    //实例
+    new Vue({
+      el: '#app',
+      data: {},
+      template:`
+        <div>
+          <myComp></myComp> 
+          <myComp></myComp> 
+        </div>
+      `,
+    });
+  </script>
+</body>
+
+
+</html>
